@@ -1,0 +1,24 @@
+
+
+trigger:
+- main
+
+pool:
+  vmImage: self-hosted
+
+
+stages:
+  - stage: buildimage
+    displayName: Build image
+    jobs:
+      - job: buildimage
+        displayName: Build image
+        steps:
+        - task: DockerInstaller@0
+          inputs:
+            dockerVersion: '17.09.0-ce'
+        - task: Docker@2
+          inputs:
+            containerRegistry: 'docker to azure'
+            command: 'build'
+            Dockerfile: '**/Dockerfile'
