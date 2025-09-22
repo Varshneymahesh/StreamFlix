@@ -4,7 +4,7 @@ trigger:
 - main
 
 pool:
-  vmImage: Default
+  vmImage: KDC1-L-F5596F8
 
 
 stages:
